@@ -1,0 +1,71 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.RoomLecture>
+
+@{
+    ViewBag.Title = "RoomLectureList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>Room-Lecture List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Room-Lecture List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Oda_Dersleri")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ref_Lecture</th>
+                                <th>Ref_Room</th>
+                                <th>Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var roomLectureItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@roomLectureItem.Id</td>
+                                    <td>@roomLectureItem.Ref_Lecture</td>
+                                    <td>@roomLectureItem.Ref_Room</td>
+                                    <td>@(roomLectureItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Oda_Dersleri",new { id = roomLectureItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Oda_Dersleri",new { id = roomLectureItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Oda_Dersleri", new { id = roomLectureItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>User List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>User List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Kullanicis")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Password</th>
+
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Ref_Personnel</th>
+                                <th>Active</th>
+
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var userItem in Model)
+                                {
+
+
+                                
+                                <tr>
+                                    <td>@userItem.Id</td>
+                                    <td>@userItem.Name</td>
+                                    <td>@userItem.Password</td>
+
+                                    <td>@userItem.Email</td>
+                                    <td>@userItem.Phone</td>
+                                    <td>@userItem.Ref_Personnel</td>
+
+                                    <td>@(userItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Kullanicis",new { id = userItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Kullanicis",new { id = userItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Kullanicis", new { id = userItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

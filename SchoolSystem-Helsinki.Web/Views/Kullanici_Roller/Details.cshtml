@@ -1,0 +1,45 @@
+﻿@model SchoolSystem_Helsinki.Web.Models.Kullanici_Roller
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-sm-12 col-md-12">
+    <div class="panel">
+        <div class="panel-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="mb-lg"><b>Details</b></h5>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Kullanici.adi)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Rol.adi)</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.Kullanici.adi)</td>
+                                    <td>@Html.DisplayFor(model => model.Rol.adi)</td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <a href="@Url.Action("Edit", new { id = Model.id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("UserTaskList", "Home")" class="btn btn-wide">Back to List</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

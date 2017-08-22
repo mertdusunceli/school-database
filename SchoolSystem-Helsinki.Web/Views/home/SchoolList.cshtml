@@ -1,0 +1,74 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.School>
+@{
+    ViewBag.Title = "SchoolList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SchoolSystem_Helsinki.Web.Models;
+
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>School List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>School List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Okuls")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>School Name</th>
+                                <th>School Email</th>
+                                <th>School Phone</th>
+                                <th>Active</th>
+
+                                <th>Details</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var schoolItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@schoolItem.Id</td>
+                                    <td>@schoolItem.SchoolName</td>
+                                    <td>@schoolItem.SchoolEmail</td>
+                                    <td>@schoolItem.SchoolPhone</td>
+                                    <td>@(schoolItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Okuls",new { id = schoolItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Okuls",new { id = schoolItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Okuls", new { id = schoolItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

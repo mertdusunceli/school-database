@@ -1,0 +1,102 @@
+﻿@model SchoolSystem_Helsinki.Web.Models.Der
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SchoolSystem_Helsinki.Web.Models;
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="col-sm-12 col-md-12">
+        <div class="panel">
+            <div class="panel-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <h5 class="mb-lg"><b>Create</b></h5>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ders_adi, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ders_adi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ders_adi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ders_referans, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.ders_referans, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ders_referans, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.kredi, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.kredi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.kredi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ref_bolum, "ref_bolum", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("ref_bolum", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ref_bolum, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-8">
+                                    <input type="submit" value="Create" class="btn btn-primary" />
+                                </div>
+                            </div>
+
+
+                            <a href="@Url.Action("LectureList", "Home")" class="btn btn-wide">Back to List</a>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

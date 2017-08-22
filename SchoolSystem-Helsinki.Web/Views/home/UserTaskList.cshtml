@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "UserTaskList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>User-Task List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>User-Task List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Kullanici_Roller")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ref_User</th>
+                                <th>Ref_Task</th>
+                                <th>Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var userTaskItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@userTaskItem.Id</td>
+                                    <td>@userTaskItem.Ref_User </td>
+                                    <td>@userTaskItem.Ref_Task</td>
+                                    <td>@(userTaskItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Kullanici_Roller",new { id = userTaskItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Kullanici_Roller",new { id = userTaskItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Kullanici_Roller", new { id = userTaskItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

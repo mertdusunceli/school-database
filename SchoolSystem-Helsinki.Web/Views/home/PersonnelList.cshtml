@@ -1,0 +1,87 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.Personnel>
+
+@{
+    ViewBag.Title = "PersonnelList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>Personnel List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Personnel List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Personels")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+
+                                <th>Graduation Date</th>
+                                <th>Grade</th>
+
+                                <th>Ref_department</th>
+                                <th>Ref_school</th>
+
+
+
+                                <th>Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var personnelItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@personnelItem.Id</td>
+                                    <td>@personnelItem.FirstName</td>
+                                    <td>@personnelItem.LastName </td>
+                                    <td>@personnelItem.Age</td>
+                                    <td>@personnelItem.GraduationDate</td>
+                                    <td>@personnelItem.Grade</td>
+                                    <td>@personnelItem.Ref_department</td>
+                                    <td>@personnelItem.Ref_school</td>
+
+                                    <td>@(personnelItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Personels",new { id = personnelItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Personels",new { id = personnelItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Personels", new { id = personnelItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

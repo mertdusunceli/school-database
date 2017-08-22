@@ -1,0 +1,52 @@
+﻿@model SchoolSystem_Helsinki.Web.Models.Sinavlar
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="col-sm-12 col-md-12">
+    <div class="panel">
+        <div class="panel-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5 class="mb-lg"><b>Details</b></h5>
+
+
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>@Html.DisplayNameFor(model => model.Personel.adi)</th>
+                                    <th>@Html.DisplayNameFor(model => model.Der.ders_adi)</th>
+                                    <th>@Html.DisplayNameFor(model => model.puan)</th>
+                                    <th>@Html.DisplayNameFor(model => model.durum)</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>@Html.DisplayFor(model => model.Personel.adi)</td>
+                                    <td>@Html.DisplayFor(model => model.Der.ders_adi)</td>
+                                    <td>@Html.DisplayFor(model => model.puan)</td>
+                                    <td>@Html.DisplayFor(model => model.durum)</td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <a href="@Url.Action("Edit", new { id = Model.id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("ExamList", "Home")" class="btn btn-wide">Back to List</a>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

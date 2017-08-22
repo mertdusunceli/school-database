@@ -1,0 +1,71 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.RoomPersonnel>
+
+@{
+    ViewBag.Title = "RoomPersonnelList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>Room-Personnel List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Room-Personnel List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Oda_Personel")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ref_Oda</th>
+                                <th>Ref_Room</th>
+                                <th>Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var roomPersonnelItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@roomPersonnelItem.Id</td>
+                                    <td>@roomPersonnelItem.Ref_Personnel </td>
+                                    <td>@roomPersonnelItem.Ref_Room</td>
+                                    <td>@(roomPersonnelItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Oda_Personel",new { id = roomPersonnelItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Oda_Personel",new { id = roomPersonnelItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Oda_Personel", new { id = roomPersonnelItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,146 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.Lecture>
+
+@{
+    ViewBag.Title = "LectureList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using SchoolSystem_Helsinki.Web.Models;
+
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>Lecture List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Lecture List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Ders")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Lecture Name</th>
+                                <th>Lecture Ref</th>
+                                <th>Credit</th>
+
+                                <th>Ref_Department</th>
+                                <th>Active</th>
+
+                                <th>Details</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var lectureItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@lectureItem.Id</td>
+                                    <td>@lectureItem.LectureName</td>
+                                    <td>@lectureItem.LectureRef</td>
+                                    <td>@lectureItem.Credit</td>
+                                    <td>@lectureItem.Ref_Department</td>
+
+                                    <td>@(lectureItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Ders",new { id = lectureItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Ders",new { id = lectureItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Ders", new { id = lectureItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="#">Forms</a></li>
+            <li><a>Elements</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+    <!--SETTINGS-->
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Lecture List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <a href="@Url.Action("Create", "Ders")" class="btn btn-success">Create</a><br />
+                        <table class="table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Lecture Name</th>
+                                    <th>Lecture Ref</th>
+                                    <th>Credit</th>
+
+                                    <th>Ref_Department</th>
+                                    <th>Active</th>
+
+                                    <th>Details</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var lectureItem in Model)
+                                {
+
+                                    <tr>
+                                        <td>@lectureItem.Id</td>
+                                        <td>@lectureItem.LectureName</td>
+                                        <td>@lectureItem.LectureRef</td>
+                                        <td>@lectureItem.Credit</td>
+                                        <td>@lectureItem.Ref_Department</td>
+
+                                        <td>@(lectureItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                        <td>
+                                            <a href="@Url.Action("Edit", "Ders",new { id = lectureItem.Id})" class="btn btn-warning">Update</a>
+                                            <a href="@Url.Action("Details", "Ders",new { id = lectureItem.Id})" class="btn btn-info">Detail</a>
+                                            <a href="@Url.Action("Delete", "Ders", new { id = lectureItem.Id})" class="btn btn-danger">Delete</a>
+                                        </td>
+                                    </tr>
+
+
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

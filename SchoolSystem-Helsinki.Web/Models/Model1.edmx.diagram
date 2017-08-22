@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb6c2be486a940e4a1d281a5b83c74dd" Name="Diagram1">
+        <EntityTypeShape EntityType="OkulSistemModel.Bolum" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Der" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Fakulte" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Kullanici" Width="1.5" PointX="7.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Kullanici_Roller" Width="1.5" PointX="9.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Oda" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Oda_Dersleri" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Oda_Personel" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Okul" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Personel" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Rol" Width="1.5" PointX="7.5" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.Sinavlar" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OkulSistemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <AssociationConnector Association="OkulSistemModel.FK_Bolum_Fakulte" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Ders_Bolum" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Ogrenci_Bolum" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Oda_Dersleri_Ders" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Sinavlar_Ders" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Kullanici_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Kullanici_Roller_Kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Kullanici_Roller_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Oda_Dersleri_Oda" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Oda_Personel_Oda" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Oda_Personel_Personel" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Ogrenci_Okul" ManuallyRouted="false" />
+        <AssociationConnector Association="OkulSistemModel.FK_Sinavlar_Personel" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,77 @@
+﻿@model List<SchoolSystem_Helsinki.Web.Models.Exam>
+
+@{
+    ViewBag.Title = "ExamList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+<div class="content-header">
+    <div class="leftside-content-header">
+        <ul class="breadcrumbs">
+            <li><i class="fa fa-columns" aria-hidden="true"></i><a href="/Home/Index">Main Page</a></li>
+            <li><a>Exam List</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row animated fadeInUp">
+
+
+
+    <!--Table-->
+
+
+    <div class="col-sm-12">
+        <h4 class="section-subtitle"><b>Exam List</b></h4>
+        <div class="panel">
+            <div class="panel-content">
+                <a href="@Url.Action("Create", "Sinavlars")" class="btn btn-success">Create</a><br />
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Ref_Lecture</th>
+                                <th>Ref_Personnel</th>
+                                <th>Status</th>
+                                <th>Grade</th>
+
+                                <th>Active</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var examItem in Model)
+                            {
+
+                                <tr>
+                                    <td>@examItem.Id</td>
+                                    <td>@examItem.Ref_Lecture</td>
+                                    <td>@examItem.Ref_Personnel </td>
+                                    <td>@examItem.Status</td>
+                                    <td>@examItem.Grade</td>
+
+                                    <td>@(examItem.Active == (int)EnumHelperData.Satatus.Aktif ? EnumHelperData.Satatus.Aktif : EnumHelperData.Satatus.Pasif)</td>
+
+                                    <td>
+                                        <a href="@Url.Action("Edit", "Sinavlars",new { id = examItem.Id})" class="btn btn-warning">Update</a>
+                                        <a href="@Url.Action("Details", "Sinavlars",new { id = examItem.Id})" class="btn btn-info">Detail</a>
+                                        <a href="@Url.Action("Delete", "Sinavlars", new { id = examItem.Id})" class="btn btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+
+
+                            }
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

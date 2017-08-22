@@ -1,0 +1,120 @@
+﻿@model SchoolSystem_Helsinki.Web.Models.Kullanici
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using SchoolSystem_Helsinki.Web.Models;
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="col-sm-12 col-md-12">
+        <div class="panel">
+            <div class="panel-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form class="form-horizontal">
+                            <h5 class="mb-lg"><b>Update</b></h5>
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            @Html.HiddenFor(model => model.id)
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.adi, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.adi, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.adi, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.sifre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.sifre, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.sifre, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.telefon, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.EditorFor(model => model.telefon, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.telefon, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ref_Personel, "ref_Personel", htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("ref_Personel", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.ref_Personel, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.active, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-8">
+
+                                    <select class="form-control" name="active" @(Model.active == (int)EnumHelperData.Satatus.Aktif ? "disabled" : "")>
+                                        <option value="0" @(Model.active == (int)EnumHelperData.Satatus.Pasif ? "selected" : "")>Pasif</option>
+                                        <option value="1" @(Model.active == (int)EnumHelperData.Satatus.Aktif ? "selected" : "")>Aktif</option>
+                                    </select>
+
+                                    @Html.ValidationMessageFor(model => model.active, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <br />
+                            <br />
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-8">
+                                    <input type="submit" value="Update" class="btn btn-primary" />
+                                </div>
+                            </div>
+
+
+                            <a href="@Url.Action("UserList", "Home")" class="btn btn-wide">Back to List</a>
+
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
